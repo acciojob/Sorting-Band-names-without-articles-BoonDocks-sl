@@ -1,29 +1,23 @@
-const bandNames = ['The Rolling Stones', 'Led Zeppelin', 'Pink Floyd', 'The Beatles', 'The Who', 'Aerosmith'];
+//your code here
+//your code here
+let touristSpots = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
+touristSpots.sort((a,b)=>{
+    let nameA = a.toLowerCase().substring(2); // ignorer upperCase
+    let nameB = b.toLowerCase().substring(2); // ignorer upperCase
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+    return 1;
+    }
 
-// Function to remove articles from the band names
-function removeArticles(name) {
-  const articles = ['a', 'an', 'the'];
-  const words = name.split(' ');
-
-  // Check if the first word is an article
-  if (articles.includes(words[0].toLowerCase())) {
-    words.shift(); // Remove the first word
-  }
-
-  return words.join(' ');
-}
-
-// Sort the band names in lexicographic order (excluding articles)
-const sortedBandNames = bandNames.sort((a, b) => {
-  const nameA = removeArticles(a).toLowerCase();
-  const nameB = removeArticles(b).toLowerCase();
-  return nameA.localeCompare(nameB);
-});
-
-// Display the sorted band names inside the ul id='bands' tag
-const bandsList = document.querySelector('#bands');
-sortedBandNames.forEach((bandName) => {
+    // names must be equal
+    return 0;
+})
+// Generate the list items
+const ul = document.getElementById('bands');
+touristSpots.forEach((bandName) => {
   const li = document.createElement('li');
   li.textContent = bandName;
-  bandsList.appendChild(li);
+  ul.appendChild(li);
 });
